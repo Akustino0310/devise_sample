@@ -10,7 +10,7 @@ before_action :authenticate_user!, except: :index
   end
 
   def create
-    Item.create!(name: item_params[:name],price: item_params[:price], user_id: current_user.id)
+    current_user.items.create!(item_params)
   end
 
   private
